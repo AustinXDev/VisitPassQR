@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /VisitPassQR/
+
+RewriteRule ^$ Login [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^backend/api/(.\*)$ backend/index.php [QSA,L]
+
+RewriteRule ^css/(._)$ frontend/css/$1 [L,NC]
+RewriteRule ^js/(._)$ frontend/js/$1 [L,NC]
+RewriteRule ^assets/(.*)$ frontend/assets/$1 [L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)$ frontend/$1.html [L,NC]

@@ -1,0 +1,2 @@
+# Ignore heavy dependency floders
+node_modules/

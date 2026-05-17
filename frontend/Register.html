@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/VisitPassQR/frontend/css/style.css" />
+    <link rel="stylesheet" href="https://cloudflare.com" />
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center bg-[#f4f3f0] font-sans p-8"
+  >
+    <div
+      class="animate-fade-slide-up flex w-full max-w-[780px] min-h-[520px] rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]"
+    >
+      <!-- Left panel -->
+      <div
+        class="left-panel flex-1 bg-[#1a1a2e] flex flex-col justify-between p-10 relative overflow-hidden max-sm:hidden"
+      >
+        <div
+          class="font-serif text-[13px] text-[#5dcaa5] tracking-[0.12em] uppercase relative z-10"
+        >
+          Visitor Portal
+        </div>
+        <div class="relative z-10">
+          <h2
+            class="font-serif text-[2rem] text-[#f0f0f0] leading-tight font-normal mb-3"
+          >
+            Create your<br /><em class="text-[#afa9ec] italic">account.</em>
+          </h2>
+          <p class="text-[13px] text-[#888] leading-relaxed max-w-[220px]">
+            Join the portal and get access to your workspace in seconds.
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-2 text-[13px] text-[#C0C0C0] leading-relaxed max-w-[220px]"
+        >
+          <div class="flex items-center gap-2.5">
+            <div class="w-1.5 h-1.5 rounded-full bg-[#1d9e75]"></div>
+            Secure, encrypted access
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-1.5 h-1.5 rounded-full bg-[#1d9e75]"></div>
+            Instant dashboard activation
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-1.5 h-1.5 rounded-full bg-[#1d9e75]"></div>
+            No credit card required
+          </div>
+        </div>
+      </div>
+
+      <!-- Right panel -->
+      <div
+        class="flex-[1.2] bg-white flex items-center justify-center p-10 max-sm:rounded-2xl"
+      >
+        <div class="w-full max-w-[300px]">
+          <!-- Form -->
+          <div id="form-section">
+            <p class="font-serif text-[1.6rem] text-[#1a1a1a] font-normal mb-1">
+              Sign up
+            </p>
+            <p class="text-[13px] text-[#888] mb-7">
+              Fill in your details to get started
+            </p>
+
+            <div class="flex gap-2.5 mb-[1.1rem] relative">
+              <div class="field">
+                <label
+                  for="fname"
+                  class="block text-[11px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+                  >First name</label
+                >
+                <input
+                  type="text"
+                  id="fname"
+                  placeholder="Juan"
+                  autocomplete="given-name"
+                  maxlength="20"
+                  class="w-full px-3.5 py-2 font-sans text-sm text-[#1a1a1a] bg-[#f8f7f5] border border-[#ddd] rounded-lg outline-none transition-[border-color,box-shadow] duration-200 focus:border-[#534ab7] focus:shadow-[0_0_0_3px_rgba(83,74,183,0.12)]"
+                />
+                <div class="hint" id="fname-hint"></div>
+              </div>
+              <div class="field">
+                <label
+                  for="lname"
+                  class="block text-[11px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+                  >Last name</label
+                >
+                <input
+                  type="text"
+                  id="lname"
+                  placeholder="Dela Cruz"
+                  autocomplete="family-name"
+                  maxlength="20"
+                  class="w-full px-3.5 py-2 font-sans text-sm text-[#1a1a1a] bg-[#f8f7f5] border border-[#ddd] rounded-lg outline-none transition-[border-color,box-shadow] duration-200 focus:border-[#534ab7] focus:shadow-[0_0_0_3px_rgba(83,74,183,0.12)]"
+                />
+              </div>
+            </div>
+
+            <div class="mb-[1.1rem] relative">
+              <label
+                for="email"
+                class="block text-[11px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+                >Email address</label
+              >
+              <input
+                type="email"
+                id="email"
+                placeholder="juan@example.com"
+                autocomplete="email"
+                class="w-full px-3.5 py-2 font-sans text-sm text-[#1a1a1a] bg-[#f8f7f5] border border-[#ddd] rounded-lg outline-none transition-[border-color,box-shadow] duration-200 focus:border-[#534ab7] focus:shadow-[0_0_0_3px_rgba(83,74,183,0.12)]"
+              />
+              <div class="hint" id="email-hint"></div>
+            </div>
+
+            <div class="mb-[1.1rem] relative">
+              <label
+                for="uname"
+                class="block text-[11px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+                >Username</label
+              >
+              <input
+                type="text"
+                id="uname"
+                placeholder="e.g. juan_dc"
+                autocomplete="username"
+                autocomplete="family-name"
+                maxlength="15"
+                class="w-full px-3.5 py-2 font-sans text-sm text-[#1a1a1a] bg-[#f8f7f5] border border-[#ddd] rounded-lg outline-none transition-[border-color,box-shadow] duration-200 focus:border-[#534ab7] focus:shadow-[0_0_0_3px_rgba(83,74,183,0.12)]"
+              />
+              <div class="hint" id="uname-hint"></div>
+            </div>
+
+            <div class="mb-[1.1rem] relative">
+              <label
+                for="pw"
+                class="block text-[11px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+                >Password</label
+              >
+              <div
+                class="pw-wrap relative"
+                class="block text-[11px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+              >
+                <input
+                  type="password"
+                  id="pw"
+                  placeholder="min. 8 characters"
+                  autocomplete="new-password"
+                  maxlength="15"
+                  class="w-full px-3.5 py-2 font-sans text-sm text-[#1a1a1a] bg-[#f8f7f5] border border-[#ddd] rounded-lg outline-none transition-[border-color,box-shadow] duration-200 focus:border-[#534ab7] focus:shadow-[0_0_0_3px_rgba(83,74,183,0.12)]"
+                />
+                <button
+                  class="absolute right-3 bottom-[11px] bg-transparent border-none cursor-pointer font-sans text-[11px] text-[#888] px-1 py-0.5 rounded hover:text-[#534ab7]"
+                  type="button"
+                  id="tpw1"
+                >
+                  show
+                </button>
+              </div>
+
+              <div class="strength-bar hidden mt-1" id="sbar">
+                <span id="b1" class="bg-amber-500 w-full h-1 rounded-lg"></span>
+                <span id="b2" class="bg-amber-500 w-full h-1 rounded-lg"></span>
+                <span id="b3" class="bg-amber-500 w-full h-1 rounded-lg"></span>
+                <span id="b4" class="bg-amber-500 w-full h-1 rounded-lg"></span>
+              </div>
+
+              <div class="strength-label text-xs" id="slabel"></div>
+            </div>
+
+            <div class="mb-[1.1rem] relative">
+              <label
+                for="cpw"
+                class="block text-[11px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+                >Confirm password</label
+              >
+              <div class="pw-wrap">
+                <input
+                  type="password"
+                  id="cpw"
+                  placeholder="repeat password"
+                  autocomplete="new-password"
+                  maxlength="15"
+                  class="w-full px-3.5 py-2 font-sans text-sm text-[#1a1a1a] bg-[#f8f7f5] border border-[#ddd] rounded-lg outline-none transition-[border-color,box-shadow] duration-200 focus:border-[#534ab7] focus:shadow-[0_0_0_3px_rgba(83,74,183,0.12)]"
+                />
+                <button
+                  class="absolute right-3 bottom-[11px] bg-transparent border-none cursor-pointer font-sans text-[11px] text-[#888] px-1 py-0.5 rounded hover:text-[#534ab7]"
+                  type="button"
+                  id="tpw2"
+                >
+                  show
+                </button>
+              </div>
+            </div>
+
+            <div class="mb-[1.1rem] relative text-xs flex items-center gap-2.5">
+              <input type="checkbox" id="agree" />
+              <label for="agree">
+                I agree to the
+                <a href="#" class="text-[#534ab7] font-semibold" id="terms-btn"
+                  >Terms of Service</a
+                >
+                and
+                <a href="#" class="text-[#534ab7] font-semibold" id="policy-btn"
+                  >Privacy Policy</a
+                >
+              </label>
+            </div>
+
+            <div class="terms-hint" id="terms-hint"></div>
+
+            <button
+              class="reg-btn w-full py-[11px] font-sans text-sm font-medium text-white bg-[#5dcaa5] border-none rounded-lg cursor-pointer mt-2 transition-[background,transform] duration-200 tracking-[0.02em] relative hover:bg-[#4ab896] active:scale-[0.98] disabled:bg-[#ccc] disabled:cursor-not-allowed disabled:scale-100"
+              id="reg-btn"
+              type="button"
+              style="background-color: #4ba084"
+            >
+              Create account
+            </button>
+
+            <div class="flex items-center gap-2.5 text-xs my-5">
+              <span class="w-full h-[1px] bg-gray-300"></span>
+              <span class="text-[#aaa]" style="white-space: nowrap"
+                >already have an account?</span
+              >
+              <span class="w-full h-[1px] bg-gray-300"></span>
+            </div>
+            <div class="text-[13px] text-[#888] text-center">
+              <a
+                href="/VisitPassQR/Login"
+                class="text-[#534ab7] font-medium hover:underline"
+              >
+                Sign in instead
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="modal-terms"
+      class="fixed inset-0 bg-[#1a1a2e]/40 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="terms-box"
+        class="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-w-sm w-full p-6 text-center mx-4 border border-slate-100 transform scale-90 transition-transform duration-300"
+      >
+        <h3
+          class="modal-title font-serif text-xl text-[#1a1a1a] font-normal mb-[2rem]"
+        ></h3>
+        <div class="h-[200px] overflow-y-auto text-justify text-sm">
+          <p>
+            By accessing VisitPassQR, you agree to secure your credentials and
+            use your assigned QR codes strictly for authorized facility entry.
+            We process processing logs solely for security, authentication, and
+            visitor tracking in accordance with our data privacy guidelines.
+            Unauthorized usage or pass duplication will result in immediate
+            termination of terminal access.
+          </p>
+        </div>
+        <button
+          onclick="VisitPassTermsPolicies.hide('terms')"
+          class="w-full mt-6 text-white font-sans text-sm font-medium py-2.5 rounded-lg transition transform active:scale-95 cursor-pointer"
+          style="background-color: #4ba084"
+        >
+          I understand
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="modal-policy"
+      class="fixed inset-0 bg-[#1a1a2e]/40 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="policy-box"
+        class="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-w-sm w-full p-6 text-center mx-4 border border-slate-100 transform scale-90 transition-transform duration-300"
+      >
+        <h3
+          class="modal-title font-serif text-xl text-[#1a1a1a] font-normal mb-[2rem]"
+        ></h3>
+        <div class="h-[200px] overflow-y-auto text-justify text-sm">
+          <p>
+            VisitPassQR collects your basic user profile details, system usage
+            data, and encrypted credentials to manage your digital terminal
+            identity. Time stamps and QR generation logs are captured
+            automatically during entry events to maintain building security and
+            check-in audit metrics. We do not distribute or share your log
+            history files with external parties, and your data is stored
+            securely under absolute privacy protocols.
+          </p>
+        </div>
+        <button
+          onclick="VisitPassTermsPolicies.hide('policy')"
+          class="w-full mt-6 text-white font-sans text-sm font-medium py-2.5 rounded-lg transition transform active:scale-95 cursor-pointer"
+          style="background-color: #4ba084"
+        >
+          I understand
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="modal-success"
+      class="fixed inset-0 bg-[#1a1a2e]/40 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="success-box"
+        class="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-w-sm w-full p-6 text-center mx-4 border border-slate-100 transform scale-90 transition-transform duration-300"
+      >
+        <div
+          class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="modal-title font-serif text-xl text-[#1a1a1a] font-normal">
+          Success
+        </h3>
+        <p
+          class="modal-message font-sans text-xs text-[#888] mt-2 leading-relaxed px-2"
+        >
+          Action completed successfully.
+        </p>
+        <button
+          onclick="VisitPassAlert.hide('success')"
+          class="w-full mt-6 bg-[#0f6e56] hover:bg-[#0b5240] text-white font-sans text-sm font-medium py-2.5 rounded-lg transition transform active:scale-95 cursor-pointer"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="modal-error"
+      class="fixed inset-0 bg-[#1a1a2e]/40 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="error-box"
+        class="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-w-sm w-full p-6 text-center mx-4 border border-slate-100 transform scale-90 transition-transform duration-300"
+      >
+        <div
+          class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="modal-title font-serif text-xl text-[#1a1a1a] font-normal">
+          Error
+        </h3>
+        <p
+          class="modal-message font-sans text-xs text-[#888] mt-2 leading-relaxed px-2"
+        >
+          Something went wrong.
+        </p>
+        <button
+          onclick="VisitPassAlert.hide('error')"
+          class="w-full mt-6 bg-rose-600 hover:bg-rose-700 text-white font-sans text-sm font-medium py-2.5 rounded-lg transition transform active:scale-95 cursor-pointer"
+        >
+          Dismiss
+        </button>
+      </div>
+    </div>
+
+    <script src="/VisitPassQR/frontend/js/utils/alerts.js"></script>
+    <script src="/VisitPassQR/frontend/js/utils/termsPolicy.js"></script>
+    <script src="/VisitPassQR/frontend/js/register.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/VisitPassQR/frontend/css/style.css" />
+  </head>
+  <body
+    class="min-h-screen flex items-center justify-center bg-[#f4f3f0] font-sans p-8"
+  >
+    <div
+      class="animate-fade-slide-up flex w-full max-w-[780px] min-h-[520px] rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]"
+    >
+      <!-- Left panel -->
+      <div
+        class="left-panel flex-1 bg-[#1a1a2e] flex flex-col justify-between p-10 relative overflow-hidden max-sm:hidden"
+      >
+        <div
+          class="font-serif text-[13px] text-[#afa9ec] tracking-[0.12em] uppercase relative z-10"
+        >
+          Visitor Portal
+        </div>
+
+        <div class="relative z-10">
+          <h2
+            class="font-serif text-[2rem] text-[#f0f0f0] leading-tight font-normal mb-3"
+          >
+            Welcome<br /><em class="text-[#9fe1cb] italic">back.</em>
+          </h2>
+          <p class="text-[13px] text-[#888] leading-relaxed max-w-[220px]">
+            Identify yourself to access your secure workspace and resources.
+          </p>
+        </div>
+
+        <div class="flex gap-2 relative z-10">
+          <div class="w-1.5 h-1.5 rounded-full bg-[#534ab7]"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-[#0f6e56]"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-[#3c3489]"></div>
+        </div>
+      </div>
+
+      <!-- Right panel -->
+      <div
+        class="flex-[1.2] bg-white flex items-center justify-center p-10 max-sm:rounded-2xl"
+      >
+        <div class="w-full max-w-[300px]">
+          <div id="form-section">
+            <p class="font-serif text-[1.6rem] text-[#1a1a1a] font-normal mb-1">
+              Sign in
+            </p>
+            <p class="text-[13px] text-[#888] mb-7">
+              Enter your credentials to continue
+            </p>
+
+            <!-- Username field -->
+            <div class="mb-[1.1rem] relative">
+              <label
+                for="username"
+                class="block text-[12px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+              >
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Enter Username"
+                autocomplete="username"
+                maxlength="15"
+                class="w-full px-3.5 py-2.5 font-sans text-sm text-[#1a1a1a] bg-[#f8f7f5] border border-[#ddd] rounded-lg outline-none transition-[border-color,box-shadow] duration-200 focus:border-[#534ab7] focus:shadow-[0_0_0_3px_rgba(83,74,183,0.12)]"
+              />
+            </div>
+
+            <!-- Password field -->
+            <div class="mb-[1.1rem] relative">
+              <label
+                for="password"
+                class="block text-[12px] font-medium text-[#666] tracking-[0.06em] uppercase mb-1.5"
+              >
+                Password
+              </label>
+              <div class="relative">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Enter password"
+                  autocomplete="current-password"
+                  maxlength="15"
+                  class="w-full px-3.5 py-2.5 font-sans text-sm text-[#1a1a1a] bg-[#f8f7f5] border border-[#ddd] rounded-lg outline-none transition-[border-color,box-shadow] duration-200 focus:border-[#534ab7] focus:shadow-[0_0_0_3px_rgba(83,74,183,0.12)]"
+                />
+                <button
+                  class="absolute right-3 bottom-[11px] bg-transparent border-none cursor-pointer font-sans text-[11px] text-[#888] px-1 py-0.5 rounded hover:text-[#534ab7]"
+                  type="button"
+                  id="toggle-pw"
+                >
+                  show
+                </button>
+              </div>
+
+              <div class="flex justify-end mt-2">
+                <a href="" class="text-[12px] text-orange-700">
+                  Forgot Password?
+                </a>
+              </div>
+            </div>
+
+            <button
+              class="login-btn w-full py-[11px] font-sans text-sm font-medium text-white bg-[#534ab7] border-none rounded-lg cursor-pointer mt-2 transition-[background,transform] duration-200 tracking-[0.02em] relative hover:bg-[#3c3489] active:scale-[0.98] disabled:bg-[#ccc] disabled:cursor-not-allowed disabled:scale-100"
+              id="login-btn"
+              type="button"
+            >
+              Sign in
+            </button>
+
+            <div class="divider flex items-center gap-2 my-5 justify-center">
+              <span class="w-full h-[1px] bg-gray-300"></span>
+              <span class="text-[11px] text-[#aaa]">or</span>
+              <span class="w-full h-[1px] bg-gray-300"></span>
+              <span></span>
+            </div>
+
+            <div class="text-[13px] text-[#888] text-center">
+              Don't have an account?
+              <a
+                href="/VisitPassQR/Register"
+                class="text-[#534ab7] no-underline font-medium hover:underline"
+              >
+                Request access
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="modal-success"
+      class="fixed inset-0 bg-[#1a1a2e]/40 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="success-box"
+        class="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-w-sm w-full p-6 text-center mx-4 border border-slate-100 transform scale-90 transition-transform duration-300"
+      >
+        <div
+          class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="modal-title font-serif text-xl text-[#1a1a1a] font-normal">
+          Success
+        </h3>
+        <p
+          class="modal-message font-sans text-xs text-[#888] mt-2 leading-relaxed px-2"
+        >
+          Action completed successfully.
+        </p>
+        <button
+          onclick="VisitPassAlert.hide('success')"
+          class="w-full mt-6 bg-[#0f6e56] hover:bg-[#0b5240] text-white font-sans text-sm font-medium py-2.5 rounded-lg transition transform active:scale-95 cursor-pointer"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="modal-error"
+      class="fixed inset-0 bg-[#1a1a2e]/40 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <div
+        id="error-box"
+        class="bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-w-sm w-full p-6 text-center mx-4 border border-slate-100 transform scale-90 transition-transform duration-300"
+      >
+        <div
+          class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="modal-title font-serif text-xl text-[#1a1a1a] font-normal">
+          Error
+        </h3>
+        <p
+          class="modal-message font-sans text-xs text-[#888] mt-2 leading-relaxed px-2"
+        >
+          Something went wrong.
+        </p>
+        <button
+          onclick="VisitPassAlert.hide('error')"
+          class="w-full mt-6 bg-rose-600 hover:bg-rose-700 text-white font-sans text-sm font-medium py-2.5 rounded-lg transition transform active:scale-95 cursor-pointer"
+        >
+          Dismiss
+        </button>
+      </div>
+    </div>
+
+    <script src="/VisitPassQR/frontend/js/utils/alerts.js"></script>
+    <script src="/VisitPassQR/frontend/js/login.js" type="module"></script>
+  </body>
+</html>
