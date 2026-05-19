@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "success",
         );
         setTimeout(() => {
-          window.location.href = "/VisitPassQR/dashboard";
+          window.location.href = "/VisitPassQR/Visitordash";
         }, 2000);
       } else {
         VisitPassAlert.show(
