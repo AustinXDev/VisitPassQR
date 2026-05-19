@@ -37,15 +37,7 @@ const todaySearch = document.getElementById('todaySearch');
 // Settings
 const themeOptions = document.querySelectorAll('.theme-option');
 
-// ========== HELPER FUNCTIONS ==========
-function showToast(message, type = 'info') {
-    toast.textContent = message;
-    toast.style.background = type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#10b981';
-    toast.classList.add('show');
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 3000);
-}
+
 
 function formatDate(dateString) {
     if (!dateString) return 'N/A';
@@ -145,7 +137,7 @@ function stopScanning() {
 
 async function verifyQRCode(qrValue) {
     if (!qrValue) {
-        showToast('Please enter or scan a QR code', 'error');
+             
         return;
     }
     
@@ -160,20 +152,8 @@ async function verifyQRCode(qrValue) {
     console.log(`API: POST /api/security/verify - QR: ${qrValue}`);
     
     // Mock verification - REMOVE in production
-    const mockResult = {
-        valid: true,
-        visitor: {
-            name: 'John Doe',
-            idNumber: 'STU-2024-001',
-            host: 'Prof. Maria Santos',
-            purpose: 'Parent-Teacher Meeting',
-            date: new Date().toISOString().split('T')[0],
-            time: '10:00 AM',
-            status: 'pending'
-        }
-    };
-    
-    displayScanResult(mockResult);
+   
+
 }
 
 function displayScanResult(result) {
@@ -227,7 +207,6 @@ async function grantAccess(visitorId) {
     // });
     
     console.log(`API: POST /api/security/grant-access - Visitor: ${visitorId}`);
-    showToast('Access granted successfully', 'success');
     scanResult.style.display = 'none';
     fetchActiveVisitors();
     fetchTodayVisits();
@@ -273,7 +252,6 @@ async function checkoutVisitor(visitorId) {
     // });
     
     console.log(`API: POST /api/security/checkout - Visitor: ${visitorId}`);
-    showToast('Visitor checked out successfully', 'success');
     fetchActiveVisitors();
     fetchTodayVisits();
 }
