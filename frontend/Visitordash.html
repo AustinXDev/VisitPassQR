@@ -1,22 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Academy · QR Visitor System</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="/VisitPassQR/frontend/css/dash.css" />
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/dash.css">
+</head>
+<body>
     <div class="app">
-      
         <!-- SIDEBAR NAVIGATION -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
@@ -30,437 +23,300 @@
                     </div>
                 </div>
             </div>
-            <div class="logo-text">
-              <span class="school-name"
-                >Asian Institute of Technology and Education</span
-              >
-              <span class="school-sub">Visitor Management</span>
-            </div>
-          </div>
-        </div>
-
-        <nav class="nav-menu">
-          <a href="#" class="nav-item active" data-page="landing">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-          </a>
-          <a href="#" class="nav-item" data-page="history">
-            <i class="fas fa-history"></i>
-            <span>Visit History</span>
-          </a>
-          <a href="#" class="nav-item" data-page="settings">
-            <i class="fas fa-cog"></i>
-            <span>Settings</span>
-          </a>
-        </nav>
-
-        <div class="sidebar-footer">
-          <div class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-            <span>Dark Mode</span>
-          </div>
-        </div>
-      </aside>
-
-      <!-- MAIN CONTENT -->
-      <main class="main-content">
-        <!-- TOP BAR -->
-        <div class="top-bar">
-          <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="top-bar-title">
-            <h2 id="pageTitle">Home</h2>
-          </div>
-          <div class="user-menu" id="userMenu">
-            <div class="user-avatar" id="userAvatar">
-              <span>S</span>
-            </div>
-            <div class="user-dropdown" id="userDropdown">
-              <a href="#" data-page="settings"
-                ><i class="fas fa-cog"></i> Settings</a
-              >
-              <hr />
-              <a href="/VisitPassQR/Login" id="logoutBtn"
-                ><i class="fas fa-sign-out-alt"></i> Sign Out</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- PAGE: LANDING (Home/Dashboard) -->
-        <div id="landingPage" class="page active">
-          <!-- Welcome Banner with School Crest -->
-          <div class="welcome-banner">
-            <div class="school-crest">
-              <img
-                src="images/school-logo.png"
-                alt="School Logo"
-                class="crest-logo"
-                onerror="
-                  this.src =
-                    'https://placehold.co/400x400/7c3aed/ffffff?text=RA'
-                "
-              />
-            </div>
-            <div class="welcome-content">
-              <h1>Asian Institute of Technology and Education</h1>
-              <p>VisitPassQR System</p>
-              <div class="motto">
-                Excellence in Education | Integrity | Service
-              </div>
-            </div>
-          </div>
-
-          <!-- Stats Cards -->
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="stat-info">
-                <h3>Total Visits</h3>
-                <p class="stat-number" id="totalVisits">0</p>
-              </div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-qrcode"></i>
-              </div>
-              <div class="stat-info">
-                <h3>Active QR</h3>
-                <p class="stat-number" id="activeQRCount">0</p>
-              </div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div class="stat-info">
-                <h3>Pending</h3>
-                <p class="stat-number" id="pendingRequests">0</p>
-              </div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <div class="stat-info">
-                <h3>Completed</h3>
-                <p class="stat-number" id="completedVisits">0</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Active QR Pass Display -->
-          <div class="card" id="activePassCard">
-            <div class="card-header">
-              <h3><i class="fas fa-qrcode"></i> My Active QR Pass</h3>
-              <span class="status-badge" id="qrStatusBadge"
-                >No active pass</span
-              >
-            </div>
-            <div class="card-body">
-              <div id="activeQRDisplay" class="qr-display-container">
-                <div class="empty-pass">
-                  <i class="fas fa-qrcode"></i>
-                  <p>No active QR pass</p>
-                  <small>Request a new pass below</small>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-page="landing">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item" data-page="history">
+                    <i class="fas fa-history"></i>
+                    <span>Visit History</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
                 </div>
-              </div>
             </div>
-          </div>
+        </aside>
 
-          <!-- Request Pass Section -->
-          <div class="card" id="requestCard">
-            <div class="card-header">
-              <h3>
-                <i class="fas fa-paper-plane"></i> Request New Visitor Pass
-              </h3>
-            </div>
-            <div class="card-body">
-              <div
-                id="requestBlockedMessage"
-                class="request-blocked"
-                style="display: none"
-              >
-                <i class="fas fa-exclamation-triangle"></i>
-                <p>
-                  You already have an active QR pass. Please use your current
-                  pass or wait for it to expire before requesting a new one.
-                </p>
-              </div>
-
-              <form id="requestForm" class="request-form">
-                <!-- ID Upload Section -->
-                <div class="id-upload-section">
-                  <div class="id-upload-header">
-                    <i class="fas fa-id-card"></i>
-                    <span>Student / Staff ID Upload</span>
-                  </div>
-                  <div class="id-upload-area" id="idUploadArea">
-                    <input
-                      type="file"
-                      id="idUpload"
-                      accept="image/*,.pdf"
-                      style="display: none"
-                    />
-                    <div class="id-upload-placeholder" id="idUploadPlaceholder">
-                      <i class="fas fa-cloud-upload-alt"></i>
-                      <p>Click or drag to upload School ID</p>
-                      <small>Supported: JPG, PNG, PDF (Max 5MB)</small>
-                    </div>
-                    <div
-                      class="id-preview"
-                      id="idPreview"
-                      style="display: none"
-                    >
-                      <img id="idPreviewImage" src="" alt="ID Preview" />
-                      <div class="id-preview-info">
-                        <span id="idFileName"></span>
-                        <button
-                          type="button"
-                          class="remove-id-btn"
-                          id="removeIdBtn"
-                        >
-                          <i class="fas fa-times"></i> Remove
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Personal Information -->
-                <div class="info-section">
-                  <div class="info-section-header">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Student / Staff Information</span>
-                    <span class="info-note-badge"
-                      >Auto-loaded from database</span
-                    >
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label><i class="fas fa-user"></i> Full Name</label>
-                      <input
-                        type="text"
-                        id="visitorName"
-                        placeholder="Loading from database..."
-                        readonly
-                        class="db-field"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label><i class="fas fa-id-card"></i> ID Number</label>
-                      <input
-                        type="text"
-                        id="visitorIdNumber"
-                        placeholder="Loading from database..."
-                        readonly
-                        class="db-field"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label
-                        ><i class="fas fa-envelope"></i> Email Address</label
-                      >
-                      <input
-                        type="email"
-                        id="visitorEmail"
-                        placeholder="Loading from database..."
-                        readonly
-                        class="db-field"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label><i class="fas fa-phone"></i> Phone Number</label>
-                      <input
-                        type="tel"
-                        id="visitorPhone"
-                        placeholder="Loading from database..."
-                        readonly
-                        class="db-field"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Visit Details - School Focused -->
-                <div class="info-section">
-                  <div class="info-section-header">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Visit Details</span>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label
-                        ><i class="fas fa-chalkboard-user"></i> Teacher / Staff
-                        to Meet *</label
-                      >
-                      <input
-                        type="text"
-                        id="visitorHost"
-                        placeholder="Who are you meeting?"
-                        required
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label
-                        ><i class="fas fa-building"></i> Department /
-                        Grade</label
-                      >
-                      <input
-                        type="text"
-                        id="visitorDepartment"
-                        placeholder="Department or Grade Level"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group">
-                      <label
-                        ><i class="fas fa-calendar-day"></i> Visit Date *</label
-                      >
-                      <input type="date" id="visitDate" required />
-                    </div>
-                    <div class="form-group">
-                      <label><i class="fas fa-clock"></i> Visit Time *</label>
-                      <input type="time" id="visitTime" required />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label
-                      ><i class="fas fa-comment"></i> Reason for Visit *</label
-                    >
-                    <select id="visitReason" required>
-                      <option value="">Select a reason...</option>
-                      <option value="meeting">Parent-Teacher Meeting</option>
-                      <option value="enrollment">
-                        Enrollment / Registration
-                      </option>
-                      <option value="pickup">Student Pickup</option>
-                      <option value="dropoff">Student Drop-off</option>
-                      <option value="event">School Event</option>
-                      <option value="office">Main Office Business</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label
-                      ><i class="fas fa-comment-dots"></i> Additional
-                      Details</label
-                    >
-                    <textarea
-                      id="visitPurpose"
-                      rows="2"
-                      placeholder="Please provide more details about your visit..."
-                      maxlength="200"
-                    ></textarea>
-                  </div>
-                </div>
-
-                <!-- ID Verification Status -->
-                <div
-                  class="verification-status"
-                  id="verificationStatus"
-                  style="display: none"
-                >
-                  <i class="fas fa-check-circle"></i>
-                  <span>ID uploaded successfully</span>
-                </div>
-
-                <button type="submit" class="btn-primary" id="requestPassBtn">
-                  <i class="fas fa-qrcode"></i> Request School Pass
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- TOP BAR -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
                 </button>
-              </form>
+                <div class="top-bar-title">
+                    <h2 id="pageTitle">Home</h2>
+                </div>
+                <div class="user-menu" id="userMenu">
+                    <div class="user-avatar" id="userAvatar">
+                        <span>S</span>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" data-page="settings"><i class="fas fa-cog"></i> Settings</a>
+                        <hr>
+                        <a href="VisitPassQR/Login" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <!-- PAGE: HISTORY -->
-        <div id="historyPage" class="page">
-          <div class="card">
-            <div class="card-header">
-              <h3><i class="fas fa-history"></i> Visit History</h3>
-              <div class="header-actions">
-                <input
-                  type="text"
-                  id="historySearch"
-                  placeholder="Search visits..."
-                  class="search-input"
-                />
-                <select id="historyFilter" class="filter-select">
-                  <option value="all">All</option>
-                  <option value="active">Active</option>
-                  <option value="completed">Completed</option>
-                  <option value="expired">Expired</option>
-                  <option value="pending">Pending</option>
-                </select>
-              </div>
-            </div>
-            <div class="card-body">
-              <div id="historyList" class="history-list">
-                <div class="empty-state">
-                  <i class="fas fa-calendar-alt"></i>
-                  <p>No visit history yet</p>
+            <!-- PAGE: LANDING (Home/Dashboard) -->
+            <div id="landingPage" class="page active">
+                <!-- Welcome Banner with School Crest -->
+                <div class="welcome-banner">
+                    <div class="school-crest">
+                        <img src="images/school-logo.png" alt="School Logo" class="crest-logo" onerror="this.src='https://placehold.co/400x400/7c3aed/ffffff?text=RA'">
+                    </div>
+                    <div class="welcome-content">
+                        <h1>Asian Institute of Technology and Education</h1>
+                        <p>VisitPassQR System</p>
+                        <div class="motto">Excellence in Education | Integrity | Service</div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- PAGE: SETTINGS -->
-        <div id="settingsPage" class="page">
-          <div class="card">
-            <div class="card-header">
-              <h3><i class="fas fa-cog"></i> App Settings</h3>
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Visits</h3>
+                            <p class="stat-number" id="totalVisits">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active QR</h3>
+                            <p class="stat-number" id="activeQRCount">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Pending</h3>
+                            <p class="stat-number" id="pendingRequests">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Completed</h3>
+                            <p class="stat-number" id="completedVisits">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active QR Pass Display -->
+                <div class="card" id="activePassCard">
+                    <div class="card-header">
+                        <h3><i class="fas fa-qrcode"></i> My Active QR Pass</h3>
+                        <span class="status-badge" id="qrStatusBadge">No active pass</span>
+                    </div>
+                    <div class="card-body">
+                        <div id="activeQRDisplay" class="qr-display-container">
+                            <div class="empty-pass">
+                                <i class="fas fa-qrcode"></i>
+                                <p>No active QR pass</p>
+                                <small>Request a new pass below</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Request Pass Section -->
+                <div class="card" id="requestCard">
+                    <div class="card-header">
+                        <h3><i class="fas fa-paper-plane"></i> Request New Visitor Pass</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="requestBlockedMessage" class="request-blocked" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>You already have an active QR pass. Please use your current pass or wait for it to expire before requesting a new one.</p>
+                        </div>
+
+                        <form id="requestForm" class="request-form">
+                            <!-- ID Upload Section -->
+                            <div class="id-upload-section">
+                                <div class="id-upload-header">
+                                    <i class="fas fa-id-card"></i>
+                                    <span>Student / Staff ID Upload</span>
+                                </div>
+                                <div class="id-upload-area" id="idUploadArea">
+                                    <input type="file" id="idUpload" accept="image/*,.pdf" style="display: none;">
+                                    <div class="id-upload-placeholder" id="idUploadPlaceholder">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <p>Click or drag to upload School ID</p>
+                                        <small>Supported: JPG, PNG, PDF (Max 5MB)</small>
+                                    </div>
+                                    <div class="id-preview" id="idPreview" style="display: none;">
+                                        <img id="idPreviewImage" src="" alt="ID Preview">
+                                        <div class="id-preview-info">
+                                            <span id="idFileName"></span>
+                                            <button type="button" class="remove-id-btn" id="removeIdBtn">
+                                                <i class="fas fa-times"></i> Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Personal Information -->
+                            <div class="info-section">
+                                <div class="info-section-header">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>Student / Staff Information</span>
+                                    <span class="info-note-badge">Auto-loaded from database</span>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label><i class="fas fa-user"></i> Full Name</label>
+                                        <input type="text" id="visitorName" placeholder="Loading from database..." readonly class="db-field">
+                                    </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                                        <input type="email" id="visitorEmail" placeholder="Loading from database..." readonly class="db-field">
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fas fa-phone"></i> Phone Number</label>
+                                        <input type="tel" id="visitorPhone" placeholder="Loading from database..." readonly class="db-field">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Visit Details - School Focused -->
+                            <div class="info-section">
+                                <div class="info-section-header">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Visit Details</span>
+                                </div>
+                                    
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label><i class="fas fa-calendar-day"></i> Visit Date *</label>
+                                        <input type="date" id="visitDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fas fa-clock"></i> Visit Time *</label>
+                                        <input type="time" id="visitTime" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label><i class="fas fa-comment-dots"></i> Visit Reason</label>
+                                    <textarea id="visitPurpose" rows="2" placeholder="Please provide details about your visit"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- ID Verification Status -->
+                            <div class="verification-status" id="verificationStatus" style="display: none;">
+                                <i class="fas fa-check-circle"></i>
+                                <span>ID uploaded successfully</span>
+                            </div>
+
+                            <button type="submit" class="btn-primary" id="requestPassBtn">
+                                <i class="fas fa-qrcode"></i> Request School Pass
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-              <div class="settings-section">
-                <h4><i class="fas fa-palette"></i> Appearance</h4>
-                <div class="setting-item">
-                  <span>Theme Mode</span>
-                  <div class="theme-buttons">
-                    <button class="theme-option active" data-theme="light">
-                      <i class="fas fa-sun"></i> Light
-                    </button>
-                    <button class="theme-option" data-theme="dark">
-                      <i class="fas fa-moon"></i> Dark
-                    </button>
-                    <button class="theme-option" data-theme="auto">
-                      <i class="fas fa-mobile-alt"></i> Auto
-                    </button>
-                  </div>
+
+            <!-- PAGE: HISTORY -->
+            <div id="historyPage" class="page">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-history"></i> Visit History</h3>
+                        <div class="header-actions">
+                            <input type="text" id="historySearch" placeholder="Search visits..." class="search-input">
+                            <select id="historyFilter" class="filter-select">
+                                <option value="all">All</option>
+                                <option value="active">Active</option>
+                                <option value="completed">Completed</option>
+                                <option value="expired">Expired</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="historyList" class="history-list">
+                            <div class="empty-state">
+                                <i class="fas fa-calendar-alt"></i>
+                                <p>No visit history yet</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="settings-section">
-                <h4><i class="fas fa-bell"></i> Notifications</h4>
-                <div class="setting-item">
-                  <span>Email notifications for pass updates</span>
-                  <label class="switch">
-                    <input type="checkbox" id="emailNotif" />
-                    <span class="slider round"></span>
-                  </label>
-                </div>
-                <div class="setting-item">
-                  <span>SMS notifications</span>
-                  <label class="switch">
-                    <input type="checkbox" id="smsNotif" />
-                    <span class="slider round"></span>
-                  </label>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </main>
+
+            <!-- PAGE: SETTINGS -->
+            <div id="settingsPage" class="page">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-cog"></i> App Settings</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="settings-section">
+                            <h4><i class="fas fa-palette"></i> Appearance</h4>
+                            <div class="setting-item">
+                                <span>Theme Mode</span>
+                                <div class="theme-buttons">
+                                    <button class="theme-option active" data-theme="light">
+                                        <i class="fas fa-sun"></i> Light
+                                    </button>
+                                    <button class="theme-option" data-theme="dark">
+                                        <i class="fas fa-moon"></i> Dark
+                                    </button>
+                                    <button class="theme-option" data-theme="auto">
+                                        <i class="fas fa-mobile-alt"></i> Auto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="settings-section">
+                            <h4><i class="fas fa-bell"></i> Notifications</h4>
+                            <div class="setting-item">
+                                <span>Email notifications for pass updates</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="emailNotif">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <span>SMS notifications</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="smsNotif">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 
     <!-- TOAST NOTIFICATION -->
     <div id="toast" class="toast"></div>
 
-    <script src="/VisitPassQR/frontend/js/dashv.js"></script>
-  </body>
+    <script src="js/dashv.js"></script>
+</body>
 </html>
