@@ -20,6 +20,8 @@ class LoginController{
 
     $identifier = isset($data['identifier']) ? trim((string)$data['identifier']) : null;
     $password = isset($data['password']) ? (string)$data['password'] : null;
+    $ip_address = $_SERVER['REMOTE_ADDR'];
+
 
     if(empty($identifier) || empty($password)){
       http_response_code(400);
@@ -32,16 +34,56 @@ class LoginController{
         throw new Exception("Database connection is missing or unavailable.");
       }
 
+       //CHECK RATE LIMIT FIRST
+      if ($this->isRateLimited($identifier, $ip_address)) {
+        http_response_code(429); // 429 Too Many Requests
+        echo json_encode([
+          'success' => false,
+          'title' => 'Account Locked', 
+          'error' => 'Too many failed login attempts. Your account is temporarily locked for 5 minutes.'
+        ]);
+        exit;
+      }
+
       $sql = "SELECT id, fname, lname, username, email, password_hash, role FROM users WHERE username = ? LIMIT 1";
       $stmt = $this->db->prepare($sql);
       $stmt->execute([$identifier]);
       $user = $stmt->fetch();
 
-      if(!$user || !password_verify($password, $user['password_hash'])){
+      $user_id = null;
+      $status = 'invalid_user';
+
+      $log_sql = "INSERT INTO login_attempts (username, user_id, ip_address, status) VALUES (?, ?, ?, ?)";
+      $log_stmt = $this->db->prepare($log_sql);
+
+      //User does not exist
+      if(!$user){
+        $status = 'invalid_user';
+        $user_id = null;
+
+        $log_stmt->execute([$identifier, $user_id, $ip_address, $status]);
+
         http_response_code(401);
         echo json_encode(['success' => false, 'error' => 'Invalid username or password.']);
         exit;
       }
+
+      //User exists but password is wrong
+      if(!password_verify($password, $user['password_hash'])){
+        $status = 'failed';
+        $user_id = $user['id'];
+
+        $log_stmt->execute([$identifier, $user_id, $ip_address, $status]);
+
+        http_response_code(401);
+        echo json_encode(['success' => false, 'error' => 'Invalid username or password.']);
+        exit;
+      }
+
+      $status = 'success';
+      $user_id = $user['id'];
+      
+      $log_stmt->execute([$identifier, $user_id, $ip_address, $status]);
 
       //Secured session
       if(session_status() === PHP_SESSION_NONE){
@@ -73,6 +115,21 @@ class LoginController{
       echo json_encode(['success' => false, 'error' => $e->getMessage()]);
       exit;
     }
+  }
+
+  private function isRateLimited(string $identifier, string $ip_address): bool {
+    // Count failed attempts within the last 5 minutes
+    $sql = "SELECT COUNT(*) FROM login_attempts 
+            WHERE (username = ? OR ip_address = ?) 
+            AND status IN ('failed', 'invalid_user') 
+            AND attempted_at >= NOW() - INTERVAL 5 MINUTE";
+            
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute([$identifier, $ip_address]);
+    $failed_count = (int)$stmt->fetchColumn();
+
+    // Lock account if failures are 5 or more
+    return $failed_count >= 3;
   }
 }
 

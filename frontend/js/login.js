@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2000);
       } else {
         VisitPassAlert.show(
-          "Login Failed",
+          data.title || "Login Failed",
           data.error || "Invalid credentials.",
           "error",
         );
