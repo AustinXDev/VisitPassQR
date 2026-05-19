@@ -72,14 +72,7 @@ const emailNotif = document.getElementById('emailNotif');
 const smsNotif = document.getElementById('smsNotif');
 
 // ========== HELPER FUNCTIONS ==========
-function showToast(message, type = 'info') {
-    toast.textContent = message;
-    toast.style.background = type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#7c3aed';
-    toast.classList.add('show');
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 3000);
-}
+
 
 function formatDate(dateString) {
     if (!dateString) return 'Not specified';
