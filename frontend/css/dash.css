@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
   --bg-primary: #f5f3ff;
   --bg-secondary: #ffffff;
   --text-primary: #1e1b4b;
@@ -16,6 +17,25 @@
   --warning: #f59e0b;
   --danger: #ef4444;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+=======
+    --bg-primary: #f5f3ff;
+    --bg-secondary: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --border-color: #e9d5ff;
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --primary: #000000;
+    --primary-dark: #10153d;
+    --primary-light: #8b5cf6;
+    --gold: #000000;
+    --gold-dark: #b8942e;
+    --gold-light: #24fb76;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --shadow: 0 1px 3px rgba(0,0,0,0.05);
+>>>>>>> b24d8ac09e6a15a3e594a8c0333285ea0835ad0b
 }
 
 [data-theme="dark"] {
@@ -73,6 +93,7 @@ body {
 }
 
 .school-logo {
+<<<<<<< HEAD
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -87,6 +108,23 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+=======
+    width: 100px;   /* slightly bigger */
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white; /* helps logo stand out */
+    padding: 5px;      /* space so it won’t touch edges */
+    overflow: visible; /* ✅ FIX */
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ✅ SHOW FULL IMAGE */
+>>>>>>> b24d8ac09e6a15a3e594a8c0333285ea0835ad0b
 }
 
 .logo-text {
@@ -273,6 +311,7 @@ body {
 }
 
 .school-crest {
+<<<<<<< HEAD
   width: 80px;
   height: 80px;
   background: rgba(255, 255, 255, 0.15);
@@ -287,6 +326,22 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+=======
+    width: 90px;
+    height: 90px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.crest-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+>>>>>>> b24d8ac09e6a15a3e594a8c0333285ea0835ad0b
 }
 
 .welcome-content h1 {
