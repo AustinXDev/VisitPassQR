@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loginBtn = document.getElementById("login-btn");
-  const usernameInput = document.getElementById("username");
+  const identifierInput = document.getElementById("username");
   const passwordInput = document.getElementById("password");
 
   const togglePwBtn = document.getElementById("toggle-pw");
@@ -10,11 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
     togglePwBtn.textContent = isPassword ? "hide" : "show";
   });
 
-  loginBtn?.addEventListener("click", async () => {
-    const username = usernameInput.value.trim();
+  loginBtn?.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const identifier = identifierInput.value.trim();
     const password = passwordInput.value;
 
-    if (!username || !password) {
+    if (!identifier || !password) {
       VisitPassAlert.show(
         "Missing Fields",
         "Please enter both your username and password.",
@@ -23,13 +25,41 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    if (username || password) {
+    try {
+      const response = await fetch("/VisitPassQR/backend/index.php/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          identifier: identifier,
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        VisitPassAlert.show(
+          "Welcome Back!",
+          "Login Successful. Redirecting...",
+          "success",
+        );
+        setTimeout(() => {
+          window.location.href = "/VisitPassQR/dashboard";
+        }, 2000);
+      } else {
+        VisitPassAlert.show(
+          "Login Failed",
+          data.error || "Invalid credentials.",
+          "error",
+        );
+      }
+    } catch (err) {
+      console.error("Login request network error:", err);
       VisitPassAlert.show(
-        "Missing Fields",
-        "Please enter both your username and password.",
-        "success",
+        "Network Error",
+        "Unable to reach login service.",
+        "error",
       );
-      return;
     }
   });
 });

@@ -162,20 +162,18 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       );
 
-      const data = await response.text();
-      console.log(data);
-
+      const data = await response.json();
       console.log(data);
 
       if (data.success) {
         VisitPassAlert.show(
           "Success!",
-          "Your account has been registered. Redirecting to login...",
+          `${data.message} Redirecting to login...`,
           "success",
         );
 
         setTimeout(() => {
-          //window.location.href = "/VisitPassQR/Login";
+          window.location.href = "/VisitPassQR/Login";
         }, 2500);
       } else {
         // Trigger your custom animated failure cross modal with the error from PHP
